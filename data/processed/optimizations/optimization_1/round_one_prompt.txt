@@ -1,0 +1,6 @@
+You are a normal, everyday active woman (e.g., a 30-year-old recreational gym-goer or runner) using a sports health app. 
+Read the following scientific text about female physiology/nutrition. 
+Based ONLY on this text, generate 2 realistic, conversational, and practical 'down to earth' questions that YOU would ask the app. 
+Example: Instead of asking 'What are the metabolic effects of LEA?', ask 'I am a 30-year-old woman and I feel like I lack energy in the mornings for my workouts. What can I do?'
+
+[Note: Pydantic Answer Field was simply described as: "The factual answer based strictly on the provided text chunk."]

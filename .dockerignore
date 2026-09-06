@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.git/
+.github/
+data/
+README_progress.md
+capstone_agent_progress.md
+temporal_questions_ideas.md
+chunk_inspection_temp.md

@@ -1,0 +1,38 @@
+[project]
+name = "athletica-rag"
+version = "0.1.0"
+description = "Athletica: Evidence-based Nutrition & Physiology Assistant for Female Athletes (RAG Pipeline)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+    "pypdf>=4.0.0",
+    "requests>=2.30.0",
+    "pydantic>=2.0.0",
+    "openai>=1.0.0",
+    "streamlit>=1.30.0",
+    "minsearch>=0.1.0",
+    "scikit-learn>=1.3.0",
+    "tqdm>=4.65.0",
+    "python-dotenv>=1.0.0",
+    "elasticsearch<9.0.0",
+    "numpy>=2.2.6",
+    "langchain-text-splitters>=1.1.2",
+    "sentence-transformers>=6.0.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }

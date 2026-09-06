@@ -1,0 +1,32 @@
+[
+  {
+    "chunk_id": "PMID_41683203_c24",
+    "question": "I've been feeling really tired and moody after my workouts lately. Could this be a sign of something more serious?",
+    "answer": "Fatigue and low mood can be non-specific symptoms that may reflect high training loads, illness, psychological stress, or contraceptive use, rather than indicating low energy availability (LEA) itself."
+  },
+  {
+    "chunk_id": "PMID_41683203_c24",
+    "question": "I've noticed some irregularities with my menstrual cycle recently, and I'm not sure if it’s related to my training. What should I consider?",
+    "answer": "Irregular menses can be a symptom that is non-specific and may be due to various factors such as high training loads, illness, psychological stress, or contraceptive use, and not solely indicative of low energy availability."
+  },
+  {
+    "chunk_id": "PMID_42488699_c52",
+    "question": "I just had surgery and I'm worried about my recovery. How can I make sure I'm healing properly and getting back to my workouts?",
+    "answer": "It's important to have a post-operative debrief and surgical review on Day One after your procedure. This will help you address any questions and identify any early complications. For your rehabilitation, it should be tailored to your individual needs, focusing on pain relief, pelvic floor function, and overall strength."
+  },
+  {
+    "chunk_id": "PMID_42488699_c52",
+    "question": "What should I be doing after surgery to get back to my normal routine?",
+    "answer": "In the medium to long term, your rehabilitation should focus on optimising pain relief, restoring pelvic floor function, core stability, and enhancing your overall musculoskeletal strength and flexibility."
+  },
+  {
+    "chunk_id": "PMID_41841062_c46",
+    "question": "I’m a 30-year-old woman who works out regularly but I feel like I’m not recovering well after my workouts. Could testosterone therapy be something I should look into?",
+    "answer": "Current evidence suggests that testosterone and testosterone replacement therapy (TRT) can support recovery and rehabilitation, particularly for those with androgen deficiency or high catabolic burden, but it should be supervised by a medical professional."
+  },
+  {
+    "chunk_id": "PMID_41841062_c46",
+    "question": "Is there any reason I should consider testosterone therapy to help with my workouts or recovery?",
+    "answer": "Testosterone optimization may facilitate rehabilitation outcomes when properly integrated into a multidisciplinary care program, but it is important to note that these interventions should be targeted and medically supervised, rather than seen as tools for general performance enhancement."
+  }
+]
