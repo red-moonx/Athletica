@@ -445,6 +445,20 @@ def render_bibliography(citations):
                 st.divider()
 
 # --- UI Setup ---
+with st.sidebar:
+    st.markdown("### ⚙️ Admin & Logs")
+    if os.path.exists("data/feedback_log.csv"):
+        with open("data/feedback_log.csv", "r", encoding="utf-8") as f:
+            csv_data = f.read()
+        st.download_button(
+            label="📥 Descargar Feedback CSV",
+            data=csv_data,
+            file_name="feedback_log.csv",
+            mime="text/csv"
+        )
+    else:
+        st.info("Aún no hay feedback registrado.")
+
 # Two-column layout
 col1, col2 = st.columns([6, 4], gap="large")
 
