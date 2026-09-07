@@ -1,6 +1,8 @@
 import streamlit as st
 import json
 import os
+import csv
+from datetime import datetime
 import numpy as np
 from collections import defaultdict
 from dotenv import load_dotenv
@@ -132,6 +134,18 @@ except Exception as e:
     st.stop()
 
 # --- Functions ---
+def save_feedback(question: str, answer: str, score: int):
+    """Appends user feedback to a local CSV file."""
+    os.makedirs("data", exist_ok=True)
+    file_path = "data/feedback_log.csv"
+    file_exists = os.path.isfile(file_path)
+    
+    with open(file_path, mode="a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        if not file_exists:
+            writer.writerow(["timestamp", "question", "answer", "score"])
+        writer.writerow([datetime.now().isoformat(), question, answer, score])
+
 def search_knn(query: str, top_k: int = 5):
     """Retrieve chunks using in-memory cosine similarity (NumPy dot product)."""
     # Encode the query
@@ -523,6 +537,26 @@ with col2:
         else:
             st.markdown("**Tools Invoked:** None")
             
+        # Feedback UI
+        st.divider()
+        st.markdown("### 📝 Rate this answer")
+        
+        if len(st.session_state.messages) >= 2:
+            last_user_msg = st.session_state.messages[-2]["content"]
+            last_asst_msg = st.session_state.messages[-1]["content"]
+            
+            fb_col1, fb_col2 = st.columns(2)
+            msg_index = len(st.session_state.messages)
+            
+            with fb_col1:
+                if st.button("👍 Helpful", key=f"up_{msg_index}"):
+                    save_feedback(last_user_msg, last_asst_msg, 1)
+                    st.success("Feedback saved!")
+            with fb_col2:
+                if st.button("👎 Not Helpful", key=f"down_{msg_index}"):
+                    save_feedback(last_user_msg, last_asst_msg, -1)
+                    st.success("Feedback saved!")
+                    
     else:
         st.markdown("### 📚 Medical Evidence")
         st.info("Ask a question in the chat to view the retrieved scientific articles.")
