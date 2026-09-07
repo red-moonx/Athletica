@@ -447,17 +447,29 @@ def render_bibliography(citations):
 # --- UI Setup ---
 with st.sidebar:
     st.markdown("### ⚙️ Admin & Logs")
-    if os.path.exists("data/feedback_log.csv"):
-        with open("data/feedback_log.csv", "r", encoding="utf-8") as f:
-            csv_data = f.read()
-        st.download_button(
-            label="📥 Descargar Feedback CSV",
-            data=csv_data,
-            file_name="feedback_log.csv",
-            mime="text/csv"
-        )
-    else:
-        st.info("Aún no hay feedback registrado.")
+    
+    admin_password = st.text_input("Admin Password", type="password")
+    
+    # Try to get admin password from Streamlit secrets, fallback to environment variable
+    try:
+        expected_password = st.secrets.get("ADMIN_PASSWORD", os.getenv("ADMIN_PASSWORD", "athletica_admin"))
+    except (KeyError, FileNotFoundError):
+        expected_password = os.getenv("ADMIN_PASSWORD", "athletica_admin")
+        
+    if admin_password == expected_password:
+        if os.path.exists("data/feedback_log.csv"):
+            with open("data/feedback_log.csv", "r", encoding="utf-8") as f:
+                csv_data = f.read()
+            st.download_button(
+                label="📥 Descargar Feedback CSV",
+                data=csv_data,
+                file_name="feedback_log.csv",
+                mime="text/csv"
+            )
+        else:
+            st.info("Aún no hay feedback registrado.")
+    elif admin_password:
+        st.error("Contraseña incorrecta.")
 
 # Two-column layout
 col1, col2 = st.columns([6, 4], gap="large")
